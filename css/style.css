@@ -149,6 +149,18 @@ header {
   align-items: center;
 }
 
+.botonesCarrito {
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.botonesCarrito .cardButton {
+  width: 200px;
+  border-radius: 15px;
+  margin-top: 40px;
+}
+
 #modoOscuro {
   border-radius: 10px;
 }
@@ -156,6 +168,15 @@ header {
 #modoClaro {
   border-radius: 10px;
 }
+
+#carritoClear {
+  background-color: #e63e3e;
+}
+
+#confirmarCompra {
+  background-color: chartreuse;
+}
+
 
 main {
   padding: 5px;
@@ -316,6 +337,71 @@ strong {
   align-items: center;
 }
 
+.cardCarrito {
+  font-family: "Bebas Neue", cursive;
+  background-color: #b8dbd9ff;
+  color: #000000ff;
+  font-size: 20px;
+  width: 170px;
+  height: 30px;
+  border-radius: 5%;
+  border-style: none;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardCarrito:hover {
+  background-color: #e63e3e;
+  transform: scale(1.03);
+}
+
+#carritoText {
+  width: 200px;
+  text-align: left;
+}
+
+#carritoPrice {
+  width: 130px
+}
+
+#totalCarritoText {
+  font-family: "Bebas Neue", cursive;
+  width: 200px;
+  text-align: left;
+  font-size: 25px;
+}
+
+#totalCarritoPrice {
+  width: 130px;
+  color: #e63e3e;
+}
+
+#totalCarrito {
+  margin-top: 30px;
+}
+
+.cardCarritoButton {
+  font-family: "Bebas Neue", cursive;
+  background-color: #b8dbd9ff;
+  color: #000000ff;
+  font-size: 20px;
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+  border-style: none;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardCarritoButton:hover {
+  background-color: #e63e3e;
+  transform: scale(1.03);
+}
+
 .cardButton:hover {
   background-color: #e63e3e;
   transform: scale(1.03); }
@@ -323,6 +409,29 @@ strong {
 .cardButton a {
   text-decoration: none;
   color: #000000ff; }
+
+
+/* Estilos de las cards del carrito */
+.cardFlexCarrito {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: no-wrap;
+}
+
+.cardHorizontal {
+  background-color: white;
+  width: 550px;
+  height: 50px;
+  margin: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 15px;
+}
 
 
 .productBoxFlex {
@@ -396,9 +505,15 @@ strong {
   .contactForm form .consulta {
     height: 400px;
     text-align: start; }
-  .contactForm form .button {
-    width: 100px;
+  .contactForm form .buttonForm {
+    width: 90px;
+    height: 27px;
+    border-radius: 5px;
     background-color: #d4d4da; }
+
+.contactForm form .buttonForm:hover {
+  background-color: #e63e3e;
+}
 
 .map {
   border-style: solid;

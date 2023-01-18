@@ -4,14 +4,14 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Las mejores marcas reconocidas a nivel mundial. Fender, Gibson, Suhr, PRS y más.">
+        <meta name="description" content="Tienda de música en Buenos Aires orientada a guitarras de nivel profesional. Fender, Gibson, PRS y más.">
         <meta name="author" content="Federico Asta">
         <meta name="copyright" content="FV Guitars S.A.">
         <meta property="og:title" content="FV Guitars">
         <meta property="og:description" content="Tienda de música en Buenos Aires orientada a guitarras de nivel profesional.">
         <meta property="og:image" content="https://ibb.co/6NT8WqW">
         <meta property="og:url" content="https://federicoasta.github.io/proyecto-coderhouse-desarrolloweb/">
-        <title>FV Guitars  |  Marcas</title>
+        <title>FV Guitars  |  Inicio</title>
         <link rel="stylesheet" href="../css/style.css">
         <link rel="shortcut icon" href="../img/pngwing.com.png" type="image/x-icon">
     </head>
@@ -19,17 +19,18 @@
     <body>
         <header>
             <div class="flexNavBar">
-                <div class="logo"><img class="logoImagen" src="../img/pngwing.com.png" alt=""><a href="../index.html">FV Guitars</a></div>
+                <div class="logo"><img class="logoImagen" src="../img/pngwing.com.png" alt="Logo FV Guitars"><a href="../index.html">FV Guitars</a></div>
                 <nav>
                     <ul class="navBar">
                         <li><a href="../pages/productos.html">Productos</a></li>
-                        <li><a href="../pages/ofertas.html">Ofertas</a></li>
-                        <li><a href="../pages/marcas.html">Marcas</a></li>
+                        <li><a href="">Carrito</a></li>
                         <li><a href="../pages/contacto.html">Contacto</a></li>
+                        <li><button class="cardButton" id="modoOscuro">Modo Oscuro</button></li>
+                        <li><button class="cardButton" id="modoClaro">Modo Claro</button></li>
                     </ul>
                 </nav>
             </div>
-            <div class="banner"><img src="../img/banner3.png" alt="Imagen Guitarrista Banner"></div>
+            <div class="banner"><img src="../img/Rectangle 2.png" alt="Imagen Guitarrista Banner"></div>
             <div>
                 <ul class="brandBar">
                     <li><a href="https://www.fender.com/es/start" target="_blank"><img class="brandImg" src="../img/fender.png" alt="Logo Fender"></a></li>
@@ -43,49 +44,22 @@
         </header>
 
         <main>
-            <div class="productBoxFlex">
-                <section class="productBox">
-                    <div>
-                        <p>Fender</p>
-                        <a href=""><img src="../img/Rectangle 9.png" alt="Imagen Fender"></a>
-                    </div>
-                </section>
-                <section class="productBox">
-                    <div>
-                        <p>Gibson</p>
-                        <a href=""><img src="../img/Rectangle 10.png" alt="Imagen Gibson"></a>
-                    </div>
-                </section>
-                <section class="productBox">
-                    <div>
-                        <p>Paul Reed Smith</p>
-                        <a href=""><img src="../img/Rectangle 11.png" alt="Imagen PRS"></a>
-                    </div>
-                </section>
-                <section class="productBox">
-                    <div>
-                        <p>Marshall</p>
-                        <a href=""><img src="../img/Rectangle 12.png" alt="Imagen Marshall"></a>
-                    </div>
-                </section>
-                <section class="productBox">
-                    <div>
-                        <p>Martin</p>
-                        <a href=""><img src="../img/Rectangle 13.png" alt="Imagen Guitarra Martin"></a>
-                    </div>
-                </section>
-                <section class="productBox">
-                    <div>
-                        <p>Epiphone</p>
-                        <a href=""><img src="../img/Rectangle 16.png" alt="Imagen Epiphone"></a>
-                    </div>
-                </section>
-                <section class="productBox">
-                    <div>
-                        <p>Ernie Ball</p>
-                        <a href=""><img src="../img/Rectangle 15.png" alt="Imagen Accesorios Ernie Ball"></a>
-                    </div>
-                </section>
+            <div class="tituloPrincipal"><h1>Tu Compra:</h1></div>
+
+            <div id="productCards">
+                <div class="cardFlexCarrito">
+
+                </div>
+            </div>
+            <div id="totalCarrito">
+                <div class="cardFlexCarrito" id="tarjetaTotal">
+
+                </div>
+            </div>
+
+            <div class="botonesCarrito">
+                <button class="cardButton" id="carritoClear">Borrar Carrito</button>
+                <button class="cardButton" id="confirmarCompra">Confirmar Compra</button>
             </div>
         </main>
 
@@ -98,7 +72,7 @@
                             <ul class="footerBoxListaUL">
                                 <li><a href="">Envios</a></li>
                                 <li><a href="">Sobre Nosotros</a></li>
-                                <li><a href="../pages/contacto.html">Contacto</a></li>
+                                <li><a href="">Contacto</a></li>
                             </ul>
                         </div>
                     </section>
@@ -129,6 +103,8 @@
                 </div>
             </div>
         </footer>
+
+        <script src="../js/carrito.js"></script>
     </body>
 
 </html>

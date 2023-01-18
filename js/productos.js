@@ -6,7 +6,7 @@ fetch("https://63bf5595e262345656e7882f.mockapi.io/Instrumentos")
 .then((respuesta) => respuesta.json())  
 .then((data) => {
     instrumentos = data
-    tarjetas.innerHTML = cardsHTML(verOfertas(instrumentos))
+    tarjetas.innerHTML = cardsHTML(instrumentos)
     aplicarModo()
     subirAlCarrito()
 }) 
@@ -19,7 +19,7 @@ function cardsHTML (array) {
     const arrayToString = array.reduce((acc,element) => {
         return acc + `
         <section class="card" id="card-${element.id}">
-            <div class="cardImg"><img src="${element.imagen}" alt=${element.descripcion}></div>
+            <div class="cardImg"><img src=".${element.imagen}" alt=${element.descripcion}></div>
             <div class="cardText"><p>${element.producto}</p></div>
             <div class="cardPrice"><p>${element.precio} USD</p></div>
             <button class="cardCarrito" id="button-${element.id}"><p>Añadir al carrito</p></a></button>
@@ -30,8 +30,62 @@ function cardsHTML (array) {
 }
 
 const tarjetas = document.querySelector(".cardFlex")
-tarjetas.innerHTML = cardsHTML(verOfertas(instrumentos))
+tarjetas.innerHTML = cardsHTML(instrumentos)
 
+
+// Funcion para ordenar el array por nombre
+function ordenarNombre (array,orden) {
+    const arrayOrdenado = [...array]
+    if (orden) {
+        arrayOrdenado.sort((a,b) => {   
+            if (a.producto < b.producto) {
+                return -1  
+            } else if (a.producto > b.producto) {
+                return 1 
+            } else {
+                return 0  
+            }
+        })
+    } else if (!orden) {
+        arrayOrdenado.sort((a,b) => {   
+            if (a.producto > b.producto) {
+                return -1  
+            } else if (a.producto < b.producto) {
+                return 1 
+            } else {
+                return 0  
+            }
+        })
+    }
+    return arrayOrdenado
+}
+
+// Funcion para ordenar el array por precio
+function ordenarPrecio (array,orden) {
+    const arrayOrdenado = [...array]
+    if (orden) {
+        arrayOrdenado.sort((a,b) => {   
+            if (a.precio < b.precio) {
+                return -1  
+            } else if (a.precio > b.precio) {
+                return 1 
+            } else {
+                return 0  
+            }
+        })
+    } else if (!orden) {
+        arrayOrdenado.sort((a,b) => {   
+            if (a.precio > b.precio) {
+                return -1  
+            } else if (a.precio < b.precio) {
+                return 1 
+            } else {
+                return 0  
+            }
+        })
+    }
+    return arrayOrdenado
+}
 
 // Filtrar ofertas
 function verOfertas (array) {
@@ -49,21 +103,19 @@ const stringAJson = (valor) => {
     return JSON.parse(valor)
 }
 
-const almacenarLS = (key,valor) => {
-    return localStorage.setItem(key,objetoAJson(valor))
+const almacenarLS = (clave,valor) => {
+    return localStorage.setItem(clave,objetoAJson(valor))
 }
 
 const extraerLS = (key) => {
     return stringAJson(localStorage.getItem(key))
 }
 
-
-// Pushear a Array
+// Pushear a un array
 
 const arrayPush = (array,elemento) => {
-    array.push(elemento)
+    return array.push(elemento)
 }
-
 
 // Buscar producto
 
@@ -118,6 +170,59 @@ const estiloClaro = () => {
 }
 
 
+// Interacción con el DOM
+
+const sinOrdenVar = document.querySelector("#sinOrden")
+const ordenarAZVar = document.querySelector("#ordenarAZ")
+const ordenarZAVar = document.querySelector("#ordenarZA")
+const mayorPrecioVar = document.querySelector("#mayorPrecio")
+const menorPrecioVar = document.querySelector("#menorPrecio")
+const ofertasVar = document.querySelector("#ofertas")
+
+
+// ACCIONES DE BOTONES
+sinOrdenVar.onclick = () => {
+    tarjetas.innerHTML = cardsHTML(instrumentos)
+    aplicarModo()
+    subirAlCarrito()
+}
+
+ordenarAZVar.onclick = () => {
+    console.log("Productos ordenados de A-Z")
+    tarjetas.innerHTML = cardsHTML(ordenarNombre(instrumentos,true))
+    aplicarModo()
+    subirAlCarrito()
+}
+
+ordenarZAVar.onclick = () => {
+    console.log("Productos ordenados de Z-A")
+    tarjetas.innerHTML = cardsHTML(ordenarNombre(instrumentos,false))
+    aplicarModo()
+    subirAlCarrito()
+}
+
+menorPrecioVar.onclick = () => {
+    console.log("Productos ordenados por menor precio")
+    tarjetas.innerHTML = cardsHTML(ordenarPrecio(instrumentos,true))
+    aplicarModo()
+    subirAlCarrito()
+}
+
+mayorPrecioVar.onclick = () => {
+    console.log("Productos ordenados por mayor precio")
+    tarjetas.innerHTML = cardsHTML(ordenarPrecio(instrumentos,false))
+    aplicarModo()
+    subirAlCarrito()
+}
+
+ofertasVar.onclick = () => {
+    console.log("Productos filtrados por ofertas")
+    tarjetas.innerHTML = cardsHTML(verOfertas(instrumentos))
+    aplicarModo()
+    subirAlCarrito()
+}
+
+
 // -- MODO OSCURO --
 
 const modoOscuro = document.querySelector("#modoOscuro")
@@ -152,6 +257,7 @@ const subirAlCarrito = () => {
             console.log(carrito)
             arrayPush(carrito,producto)
             almacenarLS("carrito",carrito)
+            subirAlCarrito()
         }
     }
 )}
@@ -160,5 +266,4 @@ subirAlCarrito()
 
 carritoNuevo = extraerLS("carrito") || []
 carrito = carritoNuevo
-
 

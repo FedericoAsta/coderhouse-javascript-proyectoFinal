@@ -12,6 +12,7 @@
         <meta property="og:image" content="https://ibb.co/6NT8WqW">
         <meta property="og:url" content="https://federicoasta.github.io/proyecto-coderhouse-desarrolloweb/">
         <title>FV Guitars  |  Inicio</title>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
         <link rel="stylesheet" href="./css/style.css">
         <link rel="shortcut icon" href="./img/pngwing.com.png" type="image/x-icon">
     </head>
@@ -22,9 +23,9 @@
                 <div class="logo"><img class="logoImagen" src="./img/pngwing.com.png" alt="Logo FV Guitars"><a href="./index.html">FV Guitars</a></div>
                 <nav>
                     <ul class="navBar">
-                        <li><a href="">Productos</a></li>
-                        <li><a href="">Ofertas</a></li>
-                        <li><a href="">Contacto</a></li>
+                        <li><a href="./pages/productos.html">Productos</a></li>
+                        <li><a href="./pages/carrito.html">Carrito</a></li>
+                        <li><a href="./pages/contacto.html">Contacto</a></li>
                         <li><button class="cardButton" id="modoOscuro">Modo Oscuro</button></li>
                         <li><button class="cardButton" id="modoClaro">Modo Claro</button></li>
                     </ul>
@@ -44,19 +45,12 @@
         </header>
 
         <main>
-            <div class="tituloPrincipal"><h1>Productos</h1></div>
-
-            <div class="buttons">
-                <div class="cardButton" id="sinOrden">Quitar Filtro</div>
-                <div class="cardButton" id="ordenarAZ">Ordenar A-Z</div>
-                <div class="cardButton" id="ordenarZA">Ordenar Z-A</div>
-                <div class="cardButton" id="mayorPrecio">Mayor Precio</div>
-                <div class="cardButton" id="menorPrecio">Menor Precio</div>
-                <div class="cardButton" id="ofertas">Ofertas</div>
-            </div>
+            <div class="tituloPrincipal"><h1>Ofertas</h1></div>
 
             <div id="productCards">
+                <div class="cardFlex">
 
+                </div>
             </div>
         </main>
 
@@ -101,7 +95,6 @@
             </div>
         </footer>
 
-        <script src="./js/instrumentos.js"></script>
         <script src="./js/index.js"></script>
     </body>
 

@@ -4,14 +4,15 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Conoce nuestra más amplia linea de productos, Guitarras Eléctricas, Acústicas, Amplificadores, Accesorios y más.">
+        <meta name="description" content="Tienda de música en Buenos Aires orientada a guitarras de nivel profesional. Fender, Gibson, PRS y más.">
         <meta name="author" content="Federico Asta">
         <meta name="copyright" content="FV Guitars S.A.">
         <meta property="og:title" content="FV Guitars">
         <meta property="og:description" content="Tienda de música en Buenos Aires orientada a guitarras de nivel profesional.">
         <meta property="og:image" content="https://ibb.co/6NT8WqW">
         <meta property="og:url" content="https://federicoasta.github.io/proyecto-coderhouse-desarrolloweb/">
-        <title>FV Guitars  |  Productos</title>
+        <title>FV Guitars  |  Inicio</title>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
         <link rel="stylesheet" href="../css/style.css">
         <link rel="shortcut icon" href="../img/pngwing.com.png" type="image/x-icon">
     </head>
@@ -22,14 +23,15 @@
                 <div class="logo"><img class="logoImagen" src="../img/pngwing.com.png" alt="Logo FV Guitars"><a href="../index.html">FV Guitars</a></div>
                 <nav>
                     <ul class="navBar">
-                        <li><a href="../pages/productos.html">Productos</a></li>
-                        <li><a href="../pages/ofertas.html">Ofertas</a></li>
-                        <li><a href="../pages/marcas.html">Marcas</a></li>
+                        <li><a href="">Productos</a></li>
+                        <li><a href="../pages/carrito.html">Carrito</a></li>
                         <li><a href="../pages/contacto.html">Contacto</a></li>
+                        <li><button class="cardButton" id="modoOscuro">Modo Oscuro</button></li>
+                        <li><button class="cardButton" id="modoClaro">Modo Claro</button></li>
                     </ul>
                 </nav>
             </div>
-            <div class="banner"><img src="../img/banner2.png" alt="Imagen Guitarrista Banner"></div>
+            <div class="banner"><img src="../img/Rectangle 2.png" alt="Imagen Guitarrista Banner"></div>
             <div>
                 <ul class="brandBar">
                     <li><a href="https://www.fender.com/es/start" target="_blank"><img class="brandImg" src="../img/fender.png" alt="Logo Fender"></a></li>
@@ -43,31 +45,21 @@
         </header>
 
         <main>
-            <div class="productBoxFlex">
-                <section class="productBox">
-                    <div>
-                        <p>Guitarras Eléctricas</p>
-                        <a href=""><img src="../img/electricas.png" alt="Imagen Guitarras Eléctricas"></a>
-                    </div>
-                </section>
-                <section class="productBox">
-                    <div>
-                        <p>Guitarras Acústicas</p>
-                        <a href=""><img src="../img/acusticas.png" alt="Imagen Guitarras Acústicas"></a>
-                    </div>
-                </section>
-                <section class="productBox">
-                    <div>
-                        <p>Accesorios</p>
-                        <a href=""><img src="../img/accesorios.png" alt="Imagen Accesorios de Guitarras"></a>
-                    </div>
-                </section>
-                <section class="productBox">
-                    <div>
-                        <p>Amplificadores</p>
-                        <a href=""><img src="../img/amplis.png" alt="Imagen Amplificadores"></a>
-                    </div>
-                </section>
+            <div class="tituloPrincipal"><h1>Productos</h1></div>
+
+            <div class="buttons">
+                <div class="cardButton" id="sinOrden">Quitar Filtro</div>
+                <div class="cardButton" id="ordenarAZ">Ordenar A-Z</div>
+                <div class="cardButton" id="ordenarZA">Ordenar Z-A</div>
+                <div class="cardButton" id="mayorPrecio">Mayor Precio</div>
+                <div class="cardButton" id="menorPrecio">Menor Precio</div>
+                <div class="cardButton" id="ofertas">Ofertas</div>
+            </div>
+
+            <div id="productCards">
+                <div class="cardFlex">
+
+                </div>
             </div>
         </main>
 
@@ -80,11 +72,11 @@
                             <ul class="footerBoxListaUL">
                                 <li><a href="">Envios</a></li>
                                 <li><a href="">Sobre Nosotros</a></li>
-                                <li><a href="../pages/contacto.html">Contacto</a></li>
+                                <li><a href="">Contacto</a></li>
                             </ul>
                         </div>
                     </section>
-                </div> 
+                </div>
                 <div class="footerBox2">
                     <section class="footerBox">
                         <div class="footerBoxTitulo"><p>Locales</p></div>
@@ -110,7 +102,9 @@
                     </section>
                 </div>
             </div>
-        </footer>    
+        </footer>
+
+        <script src="../js/productos.js"></script>
     </body>
 
 </html>
