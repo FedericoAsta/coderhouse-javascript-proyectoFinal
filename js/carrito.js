@@ -78,6 +78,53 @@ const estiloClaro = () => {
     cardPrice.forEach((item) => item.style.color = "#000000ff")
 }
 
+
+// -- FUNCION PARA NOTIFICAIONES -- 
+
+const notificacionToast = (texto) => {
+    Toastify({
+        text: texto,
+        duration: 2000,
+        close: true,
+        position: "right",
+        gravity: "top",
+        style: {
+            background: "#b8dbd9ff",
+            color: "black",
+        }
+    }).showToast()
+}
+
+
+// -- SWEET ALERT -- 
+
+const swalDanger = (text) => {
+    swal(text,{  
+        dangerMode: true,
+        buttons: {
+            cancelar: "Cancelar",
+            aceptar: "Ok"
+        }
+    })
+}
+
+const swalForm = () => {
+    swal("¿Queres finalizar tu compra?", {
+        buttons: {
+            cancelar: "No",
+            aceptar: "Si"
+        }
+    })
+    .then( value => {
+        if ( value === "aceptar" ){
+            swal("Compra finalizada satisfactoriamente", {
+                icon: "success",
+            });
+        } 
+    })
+}
+
+
 // EJECUCION MODO OSCURO
 
 modoOscuro.onclick = () => {
@@ -152,23 +199,53 @@ limpiarCarrito = () => {
 
 const carritoClear = document.querySelector("#carritoClear")
 carritoClear.onclick = () => {
-    limpiarCarrito()
-    console.log("Carrito eliminado")
-    console.log(carrito)
-    tarjetas.innerHTML = cardsCarrito(carrito)
-    tarjetaTotal.innerHTML = totalCarrito(carrito)
-    aplicarModo()
+    swal("¿Estás seguro que queres eliminar todo el carrito?",{  
+        dangerMode: true,
+        buttons: {
+            cancelar: "Cancelar",
+            aceptar: "Ok"
+        }
+    })
+    .then( value => {
+        if ( value === "aceptar" ){
+            limpiarCarrito()
+            console.log("Carrito eliminado")
+            console.log(carrito)
+            tarjetas.innerHTML = cardsCarrito(carrito)
+            tarjetaTotal.innerHTML = totalCarrito(carrito)
+            aplicarModo()
+            notificacionToast("Carrito Eliminado")
+        }
+    })
 }
 
 // CONFIRMAR COMPRA
 
 const comprar = document.querySelector("#confirmarCompra")
 comprar.onclick = () => {
-    console.log("Gracias por tu compra!")
-    limpiarCarrito()
-    tarjetas.innerHTML = cardsCarrito(carrito)
-    tarjetaTotal.innerHTML = totalCarrito(carrito)
-    aplicarModo()
+    if (Number(sumarCompras(carrito)) === 0) {
+        swal("No tenes ningun producto en el carrito",{  
+            dangerMode: true
+        })
+    } else {
+        swal("¿Estás seguro que queres finalizar tu compra?",{  
+            buttons: {
+                cancelar: "Cancelar",
+                aceptar: "Ok"
+            }
+        })
+        .then( value => {
+            if ( value === "aceptar" ){
+                swal("Compra finalizada satisfactoriamente", {
+                    icon: "success",
+                });
+                limpiarCarrito()
+                tarjetas.innerHTML = cardsCarrito(carrito)
+                tarjetaTotal.innerHTML = totalCarrito(carrito)
+                aplicarModo()
+            }
+        })
+    }
 }
 
 
@@ -177,15 +254,27 @@ const quitarProducto = () => {
     const botonQuitar = document.querySelectorAll(".cardCarritoButton")
     botonQuitar.forEach(boton => {
         boton.onclick = () => {
-            const extraerId = boton.id.slice(7)
-            const productoABorrar = buscarProducto(extraerId, carrito)
-            const carritoFiltrado = carrito.filter((item) => item != productoABorrar)
-            carrito = carritoFiltrado
-            almacenarLS("carrito",carrito)
-            tarjetas.innerHTML = cardsCarrito(carrito)
-            tarjetaTotal.innerHTML = totalCarrito(carrito)
-            aplicarModo()
-            quitarProducto()
+            swal("¿Estás seguro que queres eliminar este producto del carrito?",{  
+                dangerMode: true,
+                buttons: {
+                    cancelar: "Cancelar",
+                    aceptar: "Ok"
+                }
+            })
+            .then( value => {
+                if ( value === "aceptar" ){
+                    const extraerId = boton.id.slice(7)
+                    const productoABorrar = buscarProducto(extraerId, carrito)
+                    const carritoFiltrado = carrito.filter((item) => item != productoABorrar)
+                    carrito = carritoFiltrado
+                    almacenarLS("carrito",carrito)
+                    tarjetas.innerHTML = cardsCarrito(carrito)
+                    tarjetaTotal.innerHTML = totalCarrito(carrito)
+                    aplicarModo()
+                    quitarProducto()
+                    notificacionToast("Producto eliminado")
+                }
+            })
         }
     }
 )}

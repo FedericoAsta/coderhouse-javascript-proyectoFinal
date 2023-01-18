@@ -141,7 +141,7 @@ header {
 }
 
 .buttons .cardButton {
-  width: 180px;
+  width: 150px;
   height: 50px;
   font-size: 23px;
   display: flex;
@@ -766,6 +766,7 @@ footer {
   grid-template-areas: "footerBox1" "footerBox2" "footerBox3"; } }
 
 
-
-/* Modo Oscuro */
-
+.swal-text {
+  font-family: "Bebas Neue", cursive;
+  font-size: 25px;
+}

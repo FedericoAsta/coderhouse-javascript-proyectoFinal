@@ -118,6 +118,24 @@ const estiloClaro = () => {
 }
 
 
+// -- FUNCION PARA NOTIFICAIONES -- 
+
+const notificacionToast = (texto) => {
+    Toastify({
+        text: texto,
+        duration: 2000,
+        close: true,
+        position: "right",
+        gravity: "top",
+        style: {
+            background: "#b8dbd9ff",
+            color: "black",
+            
+        }
+    }).showToast()
+}
+
+
 // -- MODO OSCURO --
 
 const modoOscuro = document.querySelector("#modoOscuro")
@@ -152,6 +170,7 @@ const subirAlCarrito = () => {
             console.log(carrito)
             arrayPush(carrito,producto)
             almacenarLS("carrito",carrito)
+            notificacionToast("Añadiste un producto al carrito")
         }
     }
 )}
