@@ -13,13 +13,14 @@
         <meta property="og:url" content="https://federicoasta.github.io/proyecto-coderhouse-desarrolloweb/">
         <title>FV Guitars  |  Contacto</title>
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
         <link rel="stylesheet" href="../css/style.css">
         <link rel="shortcut icon" href="../img/pngwing.com.png" type="image/x-icon">
     </head>
 
     <body>
         <header>
-            <div class="flexNavBar">
+            <div class="flexNavBar">  <!-- NAVBAR -->
                 <div class="logo"><img class="logoImagen" src="../img/pngwing.com.png" alt="Logo FV Guitars"><a href="../index.html">FV Guitars</a></div>
                 <nav>
                     <ul class="navBar">
@@ -31,9 +32,22 @@
                     </ul>
                 </nav>
             </div>
-            <div class="banner"><img src="../img/Rectangle 2.png" alt="Imagen Guitarrista Banner"></div>
+
+            <!-- SWIPER NAVIGATION -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="../img/Rectangle 2.png" alt=""></div>
+                    <div class="swiper-slide"><img src="../img/banner2.png" alt=""></div>
+                    <div class="swiper-slide"><img src="../img/banner3.png" alt=""></div>
+                    <div class="swiper-slide"><img src="../img/banner4.png" alt=""></div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+
             <div>
-                <ul class="brandBar">
+                <ul class="brandBar"> <!-- BRANDBAR -->
                     <li><a href="https://www.fender.com/es/start" target="_blank"><img class="brandImg" src="../img/fender.png" alt="Logo Fender"></a></li>
                     <li><a href="https://www.gibson.com/en-US/" target="_blank"><img class="brandImg"src="../img/gibson.png" alt="Logo Gibson"></a></li>
                     <li><a href="https://prsguitars.com/" target="_blank"><img class="brandImg"src="../img/123.png" alt="Logo PRS"></a></li>
@@ -49,28 +63,33 @@
                 <div class="contactBox">
                     <div class="contactInfo">
                         <h1>Contacto</h1>
-                        <p>¡Deja tus datos y nos vamos a estar comunicando con vos para la mejor atención personalizada!</p>
+                        <p class="contactSubtitulo">¡Deja tus datos y nos vamos a estar comunicando con vos para la mejor atención personalizada!</p>
                     </div>
-                    <div class="contactForm">
+                    <div class="contactForm"> <!-- FORMULARIO -->
                         <form action="" method="post" enctype="">
-                            <label for="nombre"><h2>Nombre</h2></label>
+                            <label for="nombre"><h2 id="formTitle">Nombre</h2></label>
                             <input type="text" id="nombre" placeholder="Escribí acá tu nombre">
-                            <label for="apellido"><h2>Apellido</h2></label>
+                            <label for="apellido"><h2 id="formTitle">Apellido</h2></label>
                             <input type="text" id="apellido" placeholder="Escribí acá tu apellido">
-                            <label for="mail"><h2>E-mail</h2></label>
+                            <label for="mail"><h2 id="formTitle">E-mail</h2></label>
                             <input type="text" id="mail" placeholder="Escribí acá tu correo electrónico">
                             <input class="buttonForm" type="submit">
                         </form>
                     </div>
+
+                    <div class="buttons">
+                        <div class="cardButton" id="vaciarMensajes">Eliminar Mensajes Guardados</div>
+                    </div>
+
                 </div>
-                <div class="contactBox">
-                    <h1>Locales</h1>
+                <div class="contactBox">  <!-- UBICACION LOCALES -->
+                    <h1 class="contactInfo">Locales</h1>
                     <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1359032956166!2d-73.98329298426955!3d40.759035542673146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258ff3a7b64cb%3A0x8862b7e430710e32!2sMidtown%20Manhattan%2C%20Nueva%20York%2C%20EE.%20UU.!5e0!3m2!1ses-419!2sar!4v1664159332081!5m2!1ses-419!2sar" width="600" height="650" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </main>
 
-        <footer>
+        <footer> <!-- FOOTER -->
             <div class="footerBoxFlex">
                 <div class="footerBox1">
                     <section class="footerBox">
@@ -111,6 +130,10 @@
             </div>
         </footer>
 
+        <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script> 
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <script src="../js/swiper.js"></script>
         <script src="../js/contacto.js"></script>
     </body>
 

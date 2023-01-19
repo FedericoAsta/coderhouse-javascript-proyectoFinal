@@ -156,6 +156,7 @@ modoClaro.onclick = () => {
     aplicarModo()
 }
 
+
 // CARRITO
 
 let carrito = []
@@ -179,5 +180,4 @@ subirAlCarrito()
 
 carritoNuevo = extraerLS("carrito") || []
 carrito = carritoNuevo
-
 

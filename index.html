@@ -20,7 +20,7 @@
 
     <body>
         <header>
-            <div class="flexNavBar">
+            <div class="flexNavBar"> <!-- NAVBAR -->
                 <div class="logo"><img class="logoImagen" src="./img/pngwing.com.png" alt="Logo FV Guitars"><a href="./index.html">FV Guitars</a></div>
                 <nav>
                     <ul class="navBar">
@@ -32,8 +32,21 @@
                     </ul>
                 </nav>
             </div>
-            <div class="banner"><img src="./img/Rectangle 2.png" alt="Imagen Guitarrista Banner"></div>
-            <div>
+
+            <!-- SWIPER NAVIGATION -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="./img/Rectangle 2.png" alt=""></div>
+                    <div class="swiper-slide"><img src="./img/banner2.png" alt=""></div>
+                    <div class="swiper-slide"><img src="./img/banner3.png" alt=""></div>
+                    <div class="swiper-slide"><img src="./img/banner4.png" alt=""></div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <div> <!-- BRANDBAR -->
                 <ul class="brandBar">
                     <li><a href="https://www.fender.com/es/start" target="_blank"><img class="brandImg" src="./img/fender.png" alt="Logo Fender"></a></li>
                     <li><a href="https://www.gibson.com/en-US/" target="_blank"><img class="brandImg"src="./img/gibson.png" alt="Logo Gibson"></a></li>
@@ -48,14 +61,14 @@
         <main>
             <div class="tituloPrincipal"><h1>Ofertas</h1></div>
 
-            <div id="productCards">
+            <div id="productCards">  <!-- TARJETAS DE PRODUCTO -->
                 <div class="cardFlex">
 
                 </div>
             </div>
         </main>
 
-        <footer>
+        <footer>  <!-- FOOTER -->
             <div class="footerBoxFlex">
                 <div class="footerBox1">
                     <section class="footerBox">
@@ -99,7 +112,9 @@
         <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script> 
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <script src="./js/swiper.js"></script>
         <script src="./js/index.js"></script>
     </body>
 
 </html>
+

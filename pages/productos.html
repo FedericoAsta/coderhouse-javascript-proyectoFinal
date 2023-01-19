@@ -13,6 +13,7 @@
         <meta property="og:url" content="https://federicoasta.github.io/coderhouse-javascript-proyectoFinal">
         <title>FV Guitars  |  Inicio</title>
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
         <link rel="stylesheet" href="../css/style.css">
         <link rel="shortcut icon" href="../img/pngwing.com.png" type="image/x-icon">
     </head>
@@ -31,7 +32,20 @@
                     </ul>
                 </nav>
             </div>
-            <div class="banner"><img src="../img/Rectangle 2.png" alt="Imagen Guitarrista Banner"></div>
+
+            <!-- SWIPER NAVIGATION -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="../img/Rectangle 2.png" alt=""></div>
+                    <div class="swiper-slide"><img src="../img/banner2.png" alt=""></div>
+                    <div class="swiper-slide"><img src="../img/banner3.png" alt=""></div>
+                    <div class="swiper-slide"><img src="../img/banner4.png" alt=""></div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+
             <div>
                 <ul class="brandBar">
                     <li><a href="https://www.fender.com/es/start" target="_blank"><img class="brandImg" src="../img/fender.png" alt="Logo Fender"></a></li>
@@ -104,8 +118,10 @@
             </div>
         </footer>
 
+        <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script> 
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <script src="../js/swiper.js"></script>
         <script src="../js/productos.js"></script>
     </body>
 

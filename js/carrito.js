@@ -166,13 +166,22 @@ sumarCompras = (array) => {
 }
 
 function totalCarrito (array) {
-    const totalCarrito = sumarCompras(array)
+    if (Number(sumarCompras(array)) === 0) {
+        return `
+        <section class="cardHorizontal" id="totalizador">
+        <div class="cardText"><p id="totalCarritoText">Carrito vacío</p></div>
+        <div class="cardPrice"><p id="totalCarritoPrice"><a href="../pages/productos.html">Agregar productos</a></p></div>
+    </section>
+        `
+    } else {
+        const totalCarrito = sumarCompras(array)
         return `
         <section class="cardHorizontal" id="totalizador">
             <div class="cardText"><p id="totalCarritoText">TOTAL:</p></div>
             <div class="cardPrice"><p id="totalCarritoPrice">${totalCarrito} USD</p></div>
         </section>
         `
+    }
 }
 
 
@@ -199,24 +208,31 @@ limpiarCarrito = () => {
 
 const carritoClear = document.querySelector("#carritoClear")
 carritoClear.onclick = () => {
-    swal("¿Estás seguro que queres eliminar todo el carrito?",{  
-        dangerMode: true,
-        buttons: {
-            cancelar: "Cancelar",
-            aceptar: "Ok"
-        }
-    })
-    .then( value => {
-        if ( value === "aceptar" ){
-            limpiarCarrito()
-            console.log("Carrito eliminado")
-            console.log(carrito)
-            tarjetas.innerHTML = cardsCarrito(carrito)
-            tarjetaTotal.innerHTML = totalCarrito(carrito)
-            aplicarModo()
-            notificacionToast("Carrito Eliminado")
-        }
-    })
+    if (Number(sumarCompras(carrito)) === 0) {
+        swal("No tenes ningun producto en el carrito",{  
+            icon:"error",
+            dangerMode: true
+        })
+    } else {
+        swal("¿Estás seguro que queres eliminar todo el carrito?",{  
+            dangerMode: true,
+            buttons: {
+                cancelar: "Cancelar",
+                aceptar: "Ok"
+            }
+        })
+        .then( value => {
+            if ( value === "aceptar" ){
+                limpiarCarrito()
+                console.log("Carrito eliminado")
+                console.log(carrito)
+                tarjetas.innerHTML = cardsCarrito(carrito)
+                tarjetaTotal.innerHTML = totalCarrito(carrito)
+                aplicarModo()
+                notificacionToast("Carrito Eliminado")
+            }
+        })
+    }
 }
 
 // CONFIRMAR COMPRA
@@ -225,7 +241,8 @@ const comprar = document.querySelector("#confirmarCompra")
 comprar.onclick = () => {
     if (Number(sumarCompras(carrito)) === 0) {
         swal("No tenes ningun producto en el carrito",{  
-            dangerMode: true
+            dangerMode: true,
+            icon:"error"
         })
     } else {
         swal("¿Estás seguro que queres finalizar tu compra?",{  
@@ -236,7 +253,9 @@ comprar.onclick = () => {
         })
         .then( value => {
             if ( value === "aceptar" ){
-                swal("Compra finalizada satisfactoriamente", {
+                swal({
+                    title:"¡Listo!",
+                    text:"La compra finalizó satisfactoriamente.",
                     icon: "success",
                 });
                 limpiarCarrito()
@@ -280,3 +299,6 @@ const quitarProducto = () => {
 )}
 
 quitarProducto()
+
+
+
