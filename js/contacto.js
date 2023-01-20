@@ -79,26 +79,6 @@ const notificacionToast = (texto) => {
 const swalDanger = (text) => {
     swal(text,{  
         dangerMode: true,
-        buttons: {
-            cancelar: "Cancelar",
-            aceptar: "Ok"
-        }
-    })
-}
-
-const swalForm = () => {
-    swal("¿Queres finalizar tu compra?", {
-        buttons: {
-            cancelar: "No",
-            aceptar: "Si"
-        }
-    })
-    .then( value => {
-        if ( value === "aceptar" ){
-            swal("Compra finalizada satisfactoriamente", {
-                icon: "success",
-            });
-        } 
     })
 }
 
@@ -126,25 +106,26 @@ let mensajes = []
 
 // nombre , apellido , mail
 
-validarMail = (mail) => {
-    console.log(mail.lenght)
-    for (i = 0; i < mail.lenght ; i++) {
-        return console.log("HOLA")
+const validarMail = (mail) => {
+    let arroba = 0
+    for (let i = 0; i < mail.length ; i++) {
+        if ( mail.charAt(i) === `@`) {
+            arroba++
+        } 
     } 
+    if (arroba === 1 && mail.charAt(mail.length -4) === `.`) {
+        return true
+    } else {
+        return false
+    }
 }
 
-console.log(validarMail("fff"))
 
-
-validarFormulario = () => {
+const validarFormulario = () => {
     if (nombre.value === "" || apellido.value === "" || mail.value === "")  {
-        swal("Tenes que completar todos los campos del formulario",{  
-            dangerMode: true
-        })
+        swalDanger("Tenes que completar todos los campos del formulario")
     } else if (validarMail(mail.value) === false) {
-        swal("La dirección de correo electrónico no es válida",{  
-            dangerMode: true
-        })
+        swalDanger("La dirección de correo electrónico no es válida")
     } else {
         mensajes.push({
             nombreUser: nombre.value,
@@ -169,6 +150,7 @@ formulario.onsubmit = () => {
 mensajesNuevo = extraerLS("mensajes") || []
 mensajes = mensajesNuevo
 
+
 const eliminarMensajes = document.querySelector("#vaciarMensajes")
 eliminarMensajes.onclick = () => {
     swal({ 
@@ -192,7 +174,7 @@ eliminarMensajes.onclick = () => {
     })
 }
 
-vaciarMensajes = () => {
+const vaciarMensajes = () => {
     mensajes = []
     almacenarLS("mensajes",mensajes)
 }
