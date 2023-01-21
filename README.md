@@ -10,7 +10,7 @@ Proyecto Final CODERHOUSE | JavaScript - Federico Asta
 - Diseño responsive (Mobile & Desktop)
 
 **Tecnologías Aplicadas**  :rocket:
-- Este proyecto utiliza **HTML** para el posicionamiento de los objetos, **CSS** preprocesado utilizando el preprocesador **SCSS**, seccionando el código para mayor flexibilidad y comodidad al a hora de modificarlo.
+- Este proyecto utiliza **HTML** para el posicionamiento de los objetos, **CSS** para la definición de estilos. 
 - La interactividad de la página esta realizada únicamente mediante el uso de **Javascript** sobre el **DOM**
 - Se incorporan librerías como **SweetAlert** para las alertas, **Toastify** para notificaciones hermosas y **SWIPER** para el carrusel de fotos. 
 
