@@ -117,7 +117,7 @@ const arrayPush = (array,elemento) => {
     return array.push(elemento)
 }
 
-// Buscar producto
+// Buscar producto por ID
 
 const buscarProducto = (productId, array) => {
     return array.find(element => {
@@ -125,6 +125,20 @@ const buscarProducto = (productId, array) => {
     })
 }
 
+// Buscar producto por Nombre
+
+const buscarProductoNombre = (nombre, array) => {
+    return array.find(element => {
+        return element.producto.toUpperCase() == nombre.toUpperCase()
+    })
+}
+
+// Filtrar por categoría
+
+const filtrarCategoria = (array,categoria) => {
+    const arrayFiltrado = array.filter((elemento) => elemento.categoria.toUpperCase() === categoria.toUpperCase())
+    return arrayFiltrado
+}
 
 // FUNCION QUE APLICA EL MODO 
 
@@ -180,14 +194,22 @@ const notificacionToast = (texto) => {
         position: "right",
         gravity: "top",
         style: {
-            background: "#b8dbd9ff",
+            background: "chartreuse",
             color: "black",
             
         }
     }).showToast()
 }
 
+// -- SWEET ALERT
 
+const swalDanger = (text) => {
+    swal({  
+        icon:"error",
+        text:text,
+        buttons: true
+    })
+}
 
 // Interacción con el DOM
 
@@ -240,6 +262,50 @@ ofertasVar.onclick = () => {
     aplicarModo()
     subirAlCarrito()
 }
+
+
+// BUSCAR PRODUCTO
+
+const formulario1 = document.querySelector("#buscadorProducto")
+const inputProducto = document.querySelector("#inputProducto")
+formulario1.onsubmit = () => {
+    if (inputProducto.value === "") {
+        event.preventDefault()
+        swalDanger("Tenes que escribir el nombre de un producto")
+    } else if (buscarProductoNombre(inputProducto.value,instrumentos) === undefined) {
+        event.preventDefault()
+        swalDanger("El producto buscado no existe")
+    } else {
+        event.preventDefault()
+        const producto = []
+        const productoBuscado = buscarProductoNombre(inputProducto.value,instrumentos)
+        arrayPush(producto,productoBuscado)
+        tarjetas.innerHTML = cardsHTML(producto)
+        aplicarModo()
+        subirAlCarrito()
+    }
+}
+
+// BUSCAR POR CATEGORIA
+
+const formulario2 = document.querySelector("#buscadorCategoria")
+const inputCategoria = document.querySelector("#inputCategoria")
+formulario2.onsubmit = () => {
+    const arrayFiltrado = filtrarCategoria(instrumentos,inputCategoria.value)
+    if (inputCategoria.value === "") {
+        event.preventDefault()
+        swalDanger("Tenes que escribir el nombre de una categoría (Guitarra, Bajo, Microfono, Sintetizador)")
+    } else if (arrayFiltrado == false) {
+        event.preventDefault()
+        swalDanger("La categoría buscada no existe. Probá con: Guitarra | Bajo | Microfono | Sintetizador")
+    } else {
+        event.preventDefault() 
+        tarjetas.innerHTML = cardsHTML(arrayFiltrado)
+        aplicarModo()
+        subirAlCarrito()
+    }
+}
+
 
 
 // -- MODO OSCURO --

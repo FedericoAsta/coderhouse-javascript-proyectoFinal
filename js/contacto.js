@@ -104,8 +104,6 @@ const formulario = document.querySelector("form")
 
 let mensajes = []
 
-// nombre , apellido , mail
-
 const validarMail = (mail) => {
     let arroba = 0
     for (let i = 0; i < mail.length ; i++) {
@@ -113,19 +111,34 @@ const validarMail = (mail) => {
             arroba++
         } 
     } 
-    if (arroba === 1 && mail.charAt(mail.length -4) === `.`) {
+    if (arroba === 1 && mail.slice(-4) === `.com`) { // Se fija que tenga un solo arroba `@` y que termine en '.com' 
         return true
     } else {
         return false
     }
 }
 
+const validarNombres = (string) => {
+    let space = 0
+    for (let i = 0; i < string.length; i++) {
+        if (string.charAt(i) === ` `) {
+            space++
+        }
+    }
+    if (space > 0) {
+        return false
+    } else {
+        return true
+    }
+}
 
 const validarFormulario = () => {
     if (nombre.value === "" || apellido.value === "" || mail.value === "")  {
         swalDanger("Tenes que completar todos los campos del formulario")
     } else if (validarMail(mail.value) === false) {
         swalDanger("La dirección de correo electrónico no es válida")
+    } else if (validarNombres(nombre.value) === false || validarNombres(apellido.value) === false) {
+        swalDanger("Tu nombre y apellido no pueden contener espacios")
     } else {
         mensajes.push({
             nombreUser: nombre.value,
@@ -141,6 +154,7 @@ const validarFormulario = () => {
     }
 }
 
+// LOGICA DE EJECUCION
 
 formulario.onsubmit = () => {
     event.preventDefault()   
@@ -151,7 +165,7 @@ mensajesNuevo = extraerLS("mensajes") || []
 mensajes = mensajesNuevo
 
 
-const eliminarMensajes = document.querySelector("#vaciarMensajes")
+const eliminarMensajes = document.querySelector("#vaciarMensajes")  // Para que no se llene indefinidamente el array del LS, cree una acción que lo limpia.
 eliminarMensajes.onclick = () => {
     swal({ 
         title:"Advertencia",

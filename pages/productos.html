@@ -11,7 +11,7 @@
         <meta property="og:description" content="Tienda de música en Buenos Aires orientada a guitarras de nivel profesional.">
         <meta property="og:image" content="https://ibb.co/6NT8WqW">
         <meta property="og:url" content="https://federicoasta.github.io/coderhouse-javascript-proyectoFinal">
-        <title>FV Guitars  |  Inicio</title>
+        <title>FV Guitars  |  Productos</title>
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
         <link rel="stylesheet" href="../css/style.css">
@@ -20,7 +20,7 @@
 
     <body>
         <header>
-            <div class="flexNavBar">
+            <div class="flexNavBar"> <!-- NAVBAR -->
                 <div class="logo"><img class="logoImagen" src="../img/pngwing.com.png" alt="Logo FV Guitars"><a href="../index.html">FV Guitars</a></div>
                 <nav>
                     <ul class="navBar">
@@ -47,7 +47,7 @@
             </div>
 
             <div>
-                <ul class="brandBar">
+                <ul class="brandBar">  <!-- BRANDBAR -->
                     <li><a href="https://www.fender.com/es/start" target="_blank"><img class="brandImg" src="../img/fender.png" alt="Logo Fender"></a></li>
                     <li><a href="https://www.gibson.com/en-US/" target="_blank"><img class="brandImg"src="../img/gibson.png" alt="Logo Gibson"></a></li>
                     <li><a href="https://prsguitars.com/" target="_blank"><img class="brandImg"src="../img/123.png" alt="Logo PRS"></a></li>
@@ -61,7 +61,7 @@
         <main>
             <div class="tituloPrincipal"><h1>Productos</h1></div>
 
-            <div class="buttons">
+            <div class="buttons">  <!-- BOTONES DE FILTRO -->
                 <div class="cardButton" id="sinOrden">Quitar Filtro</div>
                 <div class="cardButton" id="ordenarAZ">Ordenar A-Z</div>
                 <div class="cardButton" id="ordenarZA">Ordenar Z-A</div>
@@ -70,14 +70,30 @@
                 <div class="cardButton" id="ofertas">Ofertas</div>
             </div>
 
-            <div id="productCards">
+            <div>
+                <form id="buscadorProducto" action=""> <!-- FILTRO POR NOMBRE DE PRODUCTO -->
+                    <label for="nombreProducto"></label>
+                    <input type="text" placeholder="Buscar Producto" id="inputProducto">
+                    <input type="submit" class="cardCarritoButton" value="Buscar">
+                </form>
+            </div>
+
+            <div>
+                <form id="buscadorCategoria" action=""> <!-- FILTRO POR NOMBRE DE CATEGORIA -->
+                    <label for="nombreCategoria"></label>
+                    <input type="text" placeholder="Buscar por Categoria" id="inputCategoria">
+                    <input type="submit" class="cardCarritoButton" value="Buscar">
+                </form>
+            </div>
+
+            <div id="productCards"> <!-- CONTENEDOR DE LAS CARDS -->
                 <div class="cardFlex">
 
                 </div>
             </div>
         </main>
 
-        <footer>
+        <footer>  <!-- FOOTER -->
             <div class="footerBoxFlex">
                 <div class="footerBox1">
                     <section class="footerBox">
@@ -86,7 +102,7 @@
                             <ul class="footerBoxListaUL">
                                 <li><a href="">Envios</a></li>
                                 <li><a href="">Sobre Nosotros</a></li>
-                                <li><a href="">Contacto</a></li>
+                                <li><a href="../pages/contacto.html">Contacto</a></li>
                             </ul>
                         </div>
                     </section>
@@ -118,6 +134,7 @@
             </div>
         </footer>
 
+        <!-- SCRIPTS -->
         <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script> 
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>

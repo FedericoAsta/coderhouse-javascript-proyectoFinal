@@ -128,7 +128,7 @@ const notificacionToast = (texto) => {
         position: "right",
         gravity: "top",
         style: {
-            background: "#b8dbd9ff",
+            background: "chartreuse",
             color: "black",
             
         }

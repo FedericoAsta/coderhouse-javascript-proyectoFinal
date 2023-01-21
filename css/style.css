@@ -358,8 +358,9 @@ strong {
 }
 
 #carritoText {
-  width: 200px;
+  width: 300px;
   text-align: left;
+  font-size: 17px;
 }
 
 #carritoPrice {
@@ -442,7 +443,7 @@ strong {
 
 .cardHorizontal {
   background-color: white;
-  width: 550px;
+  width: 690px;
   height: 50px;
   margin: 5px;
   padding: 10px;
@@ -683,7 +684,46 @@ footer {
     color: #b8dbd9ff;
     transform: scale(1.05); }
 
+#inputProducto {
+  width: 300px;
+  height: 40px;
+  margin: 10px;
+  font-size: 25px;
+  font-family: "Bebas Neue", cursive;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 7px;
+}
 
+#inputCategoria {
+  width: 300px;
+  height: 40px;
+  margin: 10px;
+  font-size: 25px;
+  font-family: "Bebas Neue", cursive;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 7px;
+}
+
+#buscadorProducto {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+#buscadorCategoria {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+
+/* MEDIA QUERYS */
 
 @media (max-width: 1500px) {
   .cardFlex {
@@ -796,6 +836,112 @@ footer {
   .swiper-slide img {
     display: none;
   }
+
+  .buttons {
+    flex-direction: column;
+    padding: 0px;
+  }
+
+  .buttons .cardButton {
+    margin: 5px;
+    width: 80%;
+    height: 40px;
+    font-size: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cardFlexCarrito {
+    flex-direction: column;
+  }
+
+  .cardText {
+    height: 40px;
+    margin: 0px;
+    font-size: 18px;
+  }
+
+  #carritoPrice {
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cardHorizontal {
+    background-color: white;
+    width: 300px;
+    height: 150px;
+    margin: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+  }
+
+  #carritoText {
+    width: 280px;
+    text-align: center;
+  }
+  
+  #carritoPrice {
+    width: 280px
+  }
+  
+  #totalCarritoText {
+    font-family: "Bebas Neue", cursive;
+    width: 280px;
+    text-align: center;
+    font-size: 30px;
+  }
+  
+  #totalCarritoVacio {
+    font-family: "Bebas Neue", cursive;
+    width: 280px;
+    text-align: center;
+    font-size: 25px;
+  }
+  
+  #totalCarritoPrice {
+    width: 280px;
+    color: #e63e3e;
+    font-size: 40px;
+  }
+  
+  #totalCarritoPrice a {
+    font-size: 18px;
+    text-decoration: none;
+    width: 280px;
+    color: #e63e3e;
+  }
+  
+  #totalCarrito {
+    margin-top: 30px;
+  }
+
+  #totalCarritoText {
+    width: 280px;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .botonesCarrito {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  #confirmarCompra {
+    margin-top: 0px;
+    margin: 5px;
+  }
+
+  #carritoClear {
+    margin-top: 0px;
+    margin: 5px;
+  }
+
 }
 
 
@@ -840,4 +986,8 @@ footer {
   width: 100%;
   height: 100%;
   object-fit:contain;
+}
+
+.toastify {
+  font-family: "Bebas Neue", cursive;
 }
